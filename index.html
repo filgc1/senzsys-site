@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Senzsys | Soluciones Tecnológicas</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header>
+    <h1>Senzsys</h1>
+    <p>Tecnología que protege, conecta y controla</p>
+  </header>
+
+  <section id="quienes-somos">
+    <h2>Quiénes somos</h2>
+    <p>Senzsys es una empresa mexicana especializada en soluciones tecnológicas integradas: videovigilancia (CCTV), control de acceso, redes, BMS, equipos de cómputo, servidores y más.</p>
+  </section>
+
+  <section id="servicios">
+    <h2>Servicios</h2>
+    <div class="servicio">
+      <button onclick="mostrarDetalle('cctv')">CCTV</button>
+      <button onclick="mostrarDetalle('control')">Control de acceso</button>
+      <button onclick="mostrarDetalle('bms')">BMS</button>
+      <button onclick="mostrarDetalle('redes')">Redes</button>
+      <button onclick="mostrarDetalle('computo')">Cómputo y servidores</button>
+      <button onclick="mostrarDetalle('consumibles')">Consumibles</button>
+    </div>
+    <div id="detalle-servicio"></div>
+  </section>
+
+  <section id="contacto">
+    <h2>Contacto</h2>
+    <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+      <input type="text" name="nombre" placeholder="Tu nombre" required />
+      <input type="email" name="email" placeholder="Tu correo" required />
+      <textarea name="mensaje" placeholder="Escribe tu mensaje" required></textarea>
+      <button type="submit">Enviar</button>
+    </form>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Senzsys. Todos los derechos reservados.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

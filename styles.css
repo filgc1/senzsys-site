@@ -1,0 +1,42 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  background: #f4f4f4;
+  color: #333;
+}
+header {
+  background: #0a0f2c;
+  color: white;
+  padding: 2rem;
+  text-align: center;
+}
+section {
+  padding: 2rem;
+}
+.servicio button {
+  margin: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  background-color: #1b3aa0;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+form input, form textarea {
+  display: block;
+  width: 100%;
+  margin-bottom: 1rem;
+  padding: 0.75rem;
+}
+form button {
+  background-color: #1b3aa0;
+  color: white;
+  border: none;
+  padding: 1rem;
+  cursor: pointer;
+}
+footer {
+  background-color: #0a0f2c;
+  color: white;
+  text-align: center;
+  padding: 1rem;
+}
