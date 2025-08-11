@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>SenzSys | Tecnología que cambia estilos de vida</title>
+  <style>
+    :root {
+      --azul-oscuro: #00264d;
+      --azul-medio: #0059b3;
+      --azul-claro: #e6f0ff;
+      --texto: #222;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: var(--azul-claro);
+      color: var(--texto);
+    }
+
+    header {
+      background-color: var(--azul-oscuro);
+      color: white;
+      padding: 20px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 999;
+    }
+
+    header img {
+      height: 50px;
+    }
+
+    nav a {
+      color: white;
+      margin-left: 20px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    nav a:hover {
+      color: #99ccff;
+    }
+
+    .hero {
+      background: url('img/senzsys.JPG') center/cover no-repeat;
+      height: 80vh;
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+      text-align: center;
+      padding-bottom: 10px;
+      color: white;
+      position: relative;
+    }
+
+    .hero h1 {
+      font-size: 2.5em;
+      background-color: rgba(0, 0, 0, 0.5);
+      padding: 20px 30px;
+      border-radius: 8px;
+      max-width: 90%;
+    }
+
+    .section {
+      padding: 60px 40px;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .section h2 {
+      color: var(--azul-medio);
+      margin-bottom: 30px;
+      text-align: center;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+    }
+
+    .card {
+      background: white;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+    }
+
+    .card-img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      border-radius: 6px;
+      margin-bottom: 15px;
+    }
+
+    footer {
+      background-color: var(--azul-oscuro);
+      color: white;
+      padding: 30px 40px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+    }
+
+    footer div {
+      margin-bottom: 20px;
+    }
+
+    .redes a {
+      color: white;
+      margin-right: 15px;
+      text-decoration: none;
+    }
+
+    .redes a:hover {
+      text-decoration: underline;
+    }
+
+    /* === Ajuste para sistemas y servicios tecnológicos con 3 columnas === */
+    .servicios-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    @media (max-width: 768px) {
+      .servicios-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* === Contacto con formulario moderno === */
+    #contacto {
+      background: #fff;
+      padding: 60px 40px;
+      max-width: 800px;
+      margin: 60px auto;
+      border-radius: 15px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+      color: #222;
+    }
+    #contacto h2 {
+      color: var(--azul-medio);
+      margin-bottom: 20px;
+      text-align: center;
+    }
+    #contacto p {
+      text-align: center;
+      margin-bottom: 25px;
+      font-size: 1.1em;
+    }
+    .contact-info {
+      text-align: center;
+      margin-bottom: 30px;
+      font-size: 1em;
+      color: #444;
+    }
+    .contact-info p {
+      margin: 6px 0;
+    }
+    .contact-info a {
+      color: var(--azul-medio);
+      text-decoration: none;
+    }
+    .contact-info a:hover {
+      text-decoration: underline;
+    }
+
+    form.contact-form {
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    form.contact-form .form-group {
+      margin-bottom: 20px;
+    }
+    form.contact-form input,
+    form.contact-form textarea {
+      width: 100%;
+      padding: 12px 15px;
+      border: 2px solid #ccc;
+      border-radius: 10px;
+      font-size: 16px;
+      transition: border-color 0.3s ease;
+    }
+    form.contact-form input:focus,
+    form.contact-form textarea:focus {
+      border-color: var(--azul-medio);
+      outline: none;
+      box-shadow: 0 0 8px rgba(0, 89, 179, 0.4);
+      background-color: #fff;
+    }
+    form.contact-form textarea {
+      min-height: 120px;
+      resize: vertical;
+    }
+    form.contact-form button {
+      background: linear-gradient(45deg, var(--azul-medio), var(--azul-oscuro));
+      color: white;
+      border: none;
+      padding: 14px 25px;
+      border-radius: 10px;
+      font-size: 16px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+    form.contact-form button:hover {
+      background: linear-gradient(45deg, var(--azul-oscuro), var(--azul-medio));
+    }
+
+  </style>
+</head>
+<body>
+
+  <header>
+    <img src="img/senzsys1.JPG" alt="SenzSys" />
+    <nav>
+      <a href="#inicio">Inicio</a>
+      <a href="#actividades">Actividades</a>
+      <a href="#sectores">Sectores</a>
+      <a href="#sistemas">Sistemas y Servicios</a>
+      <a href="#contacto">Contacto</a>
+    </nav>
+  </header>
+
+  <section class="hero" id="inicio">
+    <h1>Tecnología que cambia estilos de vida</h1>
+  </section>
+
+  <!-- ACTIVIDADES PRINCIPALES -->
+  <section class="section" id="actividades">
+    <h2>Actividades Principales</h2>
+    <div class="cards">
+      <div class="card">
+        <img src="img/consult.jpg" alt="Consultoría" class="card-img" />
+        <h3>Consultoría</h3>
+        <p>Asesoramiento estratégico y técnico para seleccionar, diseñar e implementar soluciones tecnológicas adaptadas a las necesidades específicas del cliente. Incluye diagnósticos, diseño de arquitectura tecnológica y recomendaciones de mejora.</p>
+      </div>
+      <div class="card">
+        <img src="img/mantenimiento.jpg" alt="Mantenimiento" class="card-img" />
+        <h3>Mantenimiento</h3>
+        <p>Servicio preventivo y correctivo que asegura el óptimo funcionamiento de todos los sistemas implementados. Mantenemos tu infraestructura operativa, reduciendo tiempos muertos y aumentando la vida útil de los equipos.</p>
+      </div>
+      <div class="card">
+        <img src="img/instalaciones.jpg" alt="Implementaciones" class="card-img" />
+        <h3>Implementaciones</h3>
+        <p>Ejecutamos proyectos llave en mano en sistemas tecnológicos: desde la instalación hasta la puesta en marcha, integrando hardware, software y redes, con acompañamiento técnico constante.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTORES -->
+  <section class="section" id="sectores">
+    <h2>Sectores que Atendemos</h2>
+    <div class="cards">
+      <div class="card">
+        <img src="img/residencial.jpg" alt="Residencial" class="card-img" />
+        <h3>Residencial</h3>
+        <p>Soluciones inteligentes para hogares modernos: videovigilancia, automatización, control de accesos, redes WiFi, todo integrado de forma segura y confiable.</p>
+      </div>
+      <div class="card">
+        <img src="img/industrial.jpg" alt="Industrial" class="card-img" />
+        <h3>Industrial</h3>
+        <p>Diseño e implementación de infraestructura tecnológica en plantas y fábricas. Sistemas de seguridad robustos, monitoreo remoto, control de accesos y redes industriales.</p>
+      </div>
+      <div class="card">
+        <img src="img/turismo.jpg" alt="Turístico" class="card-img" />
+        <h3>Turístico</h3>
+        <p>Soluciones para hoteles, resorts y espacios turísticos. Mejora la experiencia del huésped con redes eficientes, cámaras, automatización de habitaciones y más.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SISTEMAS Y SERVICIOS TECNOLÓGICOS -->
+  <section class="section" id="sistemas">
+    <h2>Sistemas y Servicios Tecnológicos</h2>
+    <div class="cards servicios-grid">
+      <div class="card">
+        <img src="img/cctv.webp" alt="CCTV" class="card-img" />
+        <h3>CCTV</h3>
+        <p>Instalación, configuración y mantenimiento de sistemas de videovigilancia con cámaras HD, IP, NVRs, almacenamiento en la nube y analíticos de video para seguridad inteligente.</p>
+      </div>
+      <div class="card">
+        <img src="img/CA.webp" alt="Control de Accesos" class="card-img" />
+        <h3>Control de Accesos</h3>
+        <p>Implementación de sistemas de entrada y salida con biometría, tarjetas, torniquetes y software centralizado. Ideal para oficinas, escuelas y zonas restringidas.</p>
+      </div>
+      <div class="card">
+        <img src="img/servidores.webp" alt="Servidores" class="card-img" />
+        <h3>Servidores</h3>
+        <p>Provisión, instalación y soporte de servidores físicos y virtuales. Virtualización, respaldos, almacenamiento seguro y administración centralizada.</p>
+      </div>
+      <div class="card">
+        <img src="img/bms.webp" alt="BMS" class="card-img" />
+        <h3>BMS</h3>
+        <p>Building Management Systems para automatización de edificios: control de iluminación, temperatura, energía, accesos y seguridad desde una plataforma integrada.</p>
+      </div>
+      <div class="card">
+        <img src="img/red.webp" alt="Redes" class="card-img" />
+        <h3>Redes</h3>
+        <p>Redes LAN/WAN, cableado estructurado, switches, routers, puntos de acceso WiFi empresarial, todo con seguridad y alto rendimiento.</p>
+      </div>
+      <div class="card">
+        <img src="img/consumibles.jpg" alt="Consumibles" class="card-img" />
+        <h3>Consumibles</h3>
+        <p>Suministro de conectores, cables, cámaras, fuentes de poder, discos duros, racks, herramientas especializadas y todo lo necesario para tus instalaciones tecnológicas.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACTO -->
+  <section id="contacto">
+    <h2>Contacto</h2>
+    <p>Estamos listos para ayudarte con tus necesidades tecnológicas. Llámanos o envíanos un mensaje y nos pondremos en contacto lo antes posible.</p>
+    <div class="contact-info">
+      <p><strong>Teléfonos:</strong> <a href="tel:+523111510145">+52 31 11 51 01 45</a> / <a href="tel:+523312454968">+52 33 12 45 49 68</a></p>
+      <p><strong>Email:</strong> <a href="mailto:senzsys.atencion.clientes@gmail.com">senzsys.atencion.clientes@gmail.com</a></p>
+      <p><strong>Ubicación:</strong> Bahía de Banderas, Nayarit, México</p>
+    </div>
+   <form action="https://formspree.io/f/mgvzdvdw" method="POST">
+  <input type="text" name="nombre" placeholder="Tu nombre" required />
+  <input type="email" name="email" placeholder="Tu correo" required />
+  <textarea name="mensaje" placeholder="Escribe tu mensaje" required></textarea>
+  <button type="submit">Enviar</button>
+</form>
+  </section>
+
+
+<footer>
+  <div class="footer-container">
+    <div class="footer-column">
+      <h3>SenzSys</h3>
+      <p>Tecnología que cambia estilos de vida</p>
+    </div>
+
+    <div class="footer-column">
+      <h3>Redes Sociales</h3>
+      <nav class="footer-social">
+        <a href="#" aria-label="Facebook">Facebook</a>
+        <a href="#" aria-label="Instagram">Instagram</a>
+        <a href="#" aria-label="LinkedIn">LinkedIn</a>
+      </nav>
+    </div>
+
+    <div class="footer-column">
+      <h3>Misión</h3>
+      <p>Brindar soluciones tecnológicas innovadoras que transformen y mejoren la calidad de vida de nuestros clientes, apoyando su crecimiento y eficiencia.</p>
+    </div>
+
+    <div class="footer-column">
+      <h3>Visión</h3>
+      <p>Ser líderes reconocidos en tecnología aplicada, impulsando el desarrollo sustentable y la innovación en cada proyecto que emprendemos.</p>
+    </div>
+
+    <div class="footer-column">
+      <h3>Valores</h3>
+      <ul>
+        <li>Compromiso</li>
+        <li>Calidad</li>
+        <li>Innovación</li>
+        <li>Responsabilidad</li>
+        <li>Confianza</li>
+      </ul>
+    </div>
+  </div>
+</footer>
+
+
+
+
+</body>
+</html>
