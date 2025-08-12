@@ -39,90 +39,26 @@ nav a:hover {
   color: #99ccff;
 }
 
-/* --- Carrusel --- */
 .hero {
-  max-width: 1200px;
-  margin: auto;
-  padding: 20px 40px 60px;
-  box-sizing: border-box;
+  background: url('img/senzsys.JPG') center/cover no-repeat;
+  height: 80vh;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
   text-align: center;
+  padding-bottom: 10px;
   color: white;
-}
-
-.carousel {
   position: relative;
-  max-width: 100%;
-  height: 60vh;
-  margin-bottom: 20px;
-  overflow: hidden;
-  border-radius: 12px;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.3);
 }
 
-.carousel-slide {
-  display: none;
-  height: 100%;
-  width: 100%;
-  position: absolute;
-  top: 0;
-  left: 0;
-}
-
-.carousel-slide img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-  border-radius: 12px;
-}
-
-.carousel-slide.active {
-  display: block;
-  animation: fadein 1s ease;
-}
-
-@keyframes fadein {
-  from {opacity: 0;}
-  to {opacity: 1;}
-}
-
-.carousel-btn {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  background-color: rgba(0,0,0,0.4);
-  border: none;
-  color: white;
-  font-size: 2rem;
-  padding: 8px 14px;
-  cursor: pointer;
-  border-radius: 50%;
-  user-select: none;
-  transition: background-color 0.3s ease;
-  z-index: 10;
-}
-
-.carousel-btn:hover {
-  background-color: rgba(0,0,0,0.7);
-}
-
-.carousel-btn.prev {
-  left: 10px;
-}
-
-.carousel-btn.next {
-  right: 10px;
-}
-
-.hero-text {
+.hero h1 {
   font-size: 2.5em;
-  font-weight: 700;
-  color: var(--azul-oscuro);
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 20px 30px;
+  border-radius: 8px;
   max-width: 90%;
-  margin: auto;
 }
 
-/* SECCIONES GENERALES */
 .section {
   padding: 60px 40px;
   max-width: 1200px;
@@ -231,12 +167,6 @@ footer {
   }
   .footer-column {
     min-width: auto;
-  }
-  .hero-text {
-    font-size: 2em;
-  }
-  .carousel {
-    height: 40vh;
   }
 }
 
@@ -350,4 +280,16 @@ form.contact-form button:hover {
 }
 #whatsapp-button:hover {
   transform: scale(1.1);
+}
+
+/* Ajuste específico para la imagen hero en móviles */
+@media (max-width: 768px) {
+  .hero {
+    background-size: contain; /* Muestra la imagen completa */
+    background-position: center top;
+    background-repeat: no-repeat;
+    height: auto; /* Deja que el contenido defina la altura */
+    min-height: 50vh; /* Asegura que no quede demasiado pequeña */
+    padding-top: 56.25%; /* Mantiene proporción tipo 16:9 para que se vea completa */
+  }
 }
