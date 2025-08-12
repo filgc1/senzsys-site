@@ -1,4 +1,176 @@
-/* === Ajuste para sistema y servicios tecnológicos con 3 columnas === */
+:root {
+  --azul-oscuro: #00264d;
+  --azul-medio: #0059b3;
+  --azul-claro: #e6f0ff;
+  --texto: #222;
+}
+
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background-color: var(--azul-claro);
+  color: var(--texto);
+}
+
+header {
+  background-color: var(--azul-oscuro);
+  color: white;
+  padding: 20px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 999;
+}
+
+header img {
+  height: 50px;
+}
+
+nav a {
+  color: white;
+  margin-left: 20px;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+nav a:hover {
+  color: #99ccff;
+}
+
+.hero {
+  background: url('img/senzsys.JPG') center/cover no-repeat;
+  height: 80vh;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  text-align: center;
+  padding-bottom: 10px;
+  color: white;
+  position: relative;
+}
+
+.hero h1 {
+  font-size: 2.5em;
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 20px 30px;
+  border-radius: 8px;
+  max-width: 90%;
+}
+
+.section {
+  padding: 60px 40px;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.section h2 {
+  color: var(--azul-medio);
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+}
+
+.card {
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+.card-img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 6px;
+  margin-bottom: 15px;
+}
+
+footer {
+  background-color: var(--azul-oscuro);
+  color: white;
+  padding: 30px 40px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.footer-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 40px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.footer-column {
+  flex: 1 1 180px;
+  min-width: 180px;
+}
+
+.footer-column h3 {
+  font-size: 1.3rem;
+  margin-bottom: 15px;
+  color: #a9c9ff;
+  border-bottom: 2px solid #a9c9ff;
+  padding-bottom: 6px;
+}
+
+.footer-column p,
+.footer-column ul {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #d0d9ff;
+}
+
+.footer-column ul {
+  list-style: inside circle;
+  padding-left: 0;
+  margin-top: 8px;
+}
+
+.footer-column ul li {
+  margin-bottom: 8px;
+}
+
+.footer-social a {
+  display: inline-block;
+  margin-right: 20px;
+  color: #c3d1ff;
+  font-weight: 600;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer-social a:hover {
+  color: #ffffff;
+  text-decoration: underline;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .footer-container {
+    flex-direction: column;
+    gap: 30px;
+  }
+  .footer-column {
+    min-width: auto;
+  }
+}
+
+/* === Ajuste para sistemas y servicios tecnológicos con 3 columnas === */
 .servicios-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -90,78 +262,25 @@ form.contact-form button:hover {
   background: linear-gradient(45deg, var(--azul-oscuro), var(--azul-medio));
 }
 
-
-footer {
-  background: linear-gradient(135deg, #00264d, #0059b3);
-  color: #e0e7ff;
-  padding: 50px 40px;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+/* Estilos para botón flotante WhatsApp */
+#whatsapp-button {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 999;
+  background-color: #25D366;
+  border-radius: 50%;
+  padding: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+  transition: transform 0.2s ease;
 }
-
-.footer-container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  gap: 40px;
-  max-width: 1200px;
-  margin: 0 auto;
+#whatsapp-button img {
+  width: 50px;
+  height: 50px;
 }
-
-.footer-column {
-  flex: 1 1 180px;
-  min-width: 180px;
+#whatsapp-button:hover {
+  transform: scale(1.1);
 }
-
-.footer-column h3 {
-  font-size: 1.3rem;
-  margin-bottom: 15px;
-  color: #a9c9ff;
-  border-bottom: 2px solid #a9c9ff;
-  padding-bottom: 6px;
-}
-
-.footer-column p,
-.footer-column ul {
-  font-size: 1rem;
-  line-height: 1.6;
-  color: #d0d9ff;
-}
-
-.footer-column ul {
-  list-style: inside circle;
-  padding-left: 0;
-  margin-top: 8px;
-}
-
-.footer-column ul li {
-  margin-bottom: 8px;
-}
-
-.footer-social a {
-  display: inline-block;
-  margin-right: 20px;
-  color: #c3d1ff;
-  font-weight: 600;
-  text-decoration: none;
-  transition: color 0.3s ease;
-}
-
-.footer-social a:hover {
-  color: #ffffff;
-  text-decoration: underline;
-}
-
-/* Responsive */
-@media (max-width: 768px) {
-  .footer-container {
-    flex-direction: column;
-    gap: 30px;
-  }
-  .footer-column {
-    min-width: auto;
-  }
-}
-
 
 /* Ajuste específico para la imagen hero en móviles */
 @media (max-width: 768px) {

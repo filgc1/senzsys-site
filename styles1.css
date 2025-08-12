@@ -1,0 +1,176 @@
+/* === Ajuste para sistema y servicios tecnológicos con 3 columnas === */
+.servicios-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+@media (max-width: 768px) {
+  .servicios-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* === Contacto con formulario moderno === */
+#contacto {
+  background: #fff;
+  padding: 60px 40px;
+  max-width: 800px;
+  margin: 60px auto;
+  border-radius: 15px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+  color: #222;
+}
+#contacto h2 {
+  color: var(--azul-medio);
+  margin-bottom: 20px;
+  text-align: center;
+}
+#contacto p {
+  text-align: center;
+  margin-bottom: 25px;
+  font-size: 1.1em;
+}
+.contact-info {
+  text-align: center;
+  margin-bottom: 30px;
+  font-size: 1em;
+  color: #444;
+}
+.contact-info p {
+  margin: 6px 0;
+}
+.contact-info a {
+  color: var(--azul-medio);
+  text-decoration: none;
+}
+.contact-info a:hover {
+  text-decoration: underline;
+}
+
+form.contact-form {
+  max-width: 600px;
+  margin: 0 auto;
+}
+form.contact-form .form-group {
+  margin-bottom: 20px;
+}
+form.contact-form input,
+form.contact-form textarea {
+  width: 100%;
+  padding: 12px 15px;
+  border: 2px solid #ccc;
+  border-radius: 10px;
+  font-size: 16px;
+  transition: border-color 0.3s ease;
+}
+form.contact-form input:focus,
+form.contact-form textarea:focus {
+  border-color: var(--azul-medio);
+  outline: none;
+  box-shadow: 0 0 8px rgba(0, 89, 179, 0.4);
+  background-color: #fff;
+}
+form.contact-form textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+form.contact-form button {
+  background: linear-gradient(45deg, var(--azul-medio), var(--azul-oscuro));
+  color: white;
+  border: none;
+  padding: 14px 25px;
+  border-radius: 10px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+form.contact-form button:hover {
+  background: linear-gradient(45deg, var(--azul-oscuro), var(--azul-medio));
+}
+
+
+footer {
+  background: linear-gradient(135deg, #00264d, #0059b3);
+  color: #e0e7ff;
+  padding: 50px 40px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.footer-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 40px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.footer-column {
+  flex: 1 1 180px;
+  min-width: 180px;
+}
+
+.footer-column h3 {
+  font-size: 1.3rem;
+  margin-bottom: 15px;
+  color: #a9c9ff;
+  border-bottom: 2px solid #a9c9ff;
+  padding-bottom: 6px;
+}
+
+.footer-column p,
+.footer-column ul {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #d0d9ff;
+}
+
+.footer-column ul {
+  list-style: inside circle;
+  padding-left: 0;
+  margin-top: 8px;
+}
+
+.footer-column ul li {
+  margin-bottom: 8px;
+}
+
+.footer-social a {
+  display: inline-block;
+  margin-right: 20px;
+  color: #c3d1ff;
+  font-weight: 600;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer-social a:hover {
+  color: #ffffff;
+  text-decoration: underline;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .footer-container {
+    flex-direction: column;
+    gap: 30px;
+  }
+  .footer-column {
+    min-width: auto;
+  }
+}
+
+
+/* Ajuste específico para la imagen hero en móviles */
+@media (max-width: 768px) {
+  .hero {
+    background-size: contain; /* Muestra la imagen completa */
+    background-position: center top;
+    background-repeat: no-repeat;
+    height: auto; /* Deja que el contenido defina la altura */
+    min-height: 50vh; /* Asegura que no quede demasiado pequeña */
+    padding-top: 56.25%; /* Mantiene proporción tipo 16:9 para que se vea completa */
+  }
+}

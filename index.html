@@ -4,222 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>SenzSys | Tecnología que cambia estilos de vida</title>
-  <style>
-    :root {
-      --azul-oscuro: #00264d;
-      --azul-medio: #0059b3;
-      --azul-claro: #e6f0ff;
-      --texto: #222;
-    }
-
-    body {
-      margin: 0;
-      font-family: 'Segoe UI', sans-serif;
-      background-color: var(--azul-claro);
-      color: var(--texto);
-    }
-
-    header {
-      background-color: var(--azul-oscuro);
-      color: white;
-      padding: 20px 40px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      position: sticky;
-      top: 0;
-      z-index: 999;
-    }
-
-    header img {
-      height: 50px;
-    }
-
-    nav a {
-      color: white;
-      margin-left: 20px;
-      text-decoration: none;
-      font-weight: bold;
-    }
-
-    nav a:hover {
-      color: #99ccff;
-    }
-
-    .hero {
-      background: url('img/senzsys.JPG') center/cover no-repeat;
-      height: 80vh;
-      display: flex;
-      align-items: flex-end;
-      justify-content: center;
-      text-align: center;
-      padding-bottom: 10px;
-      color: white;
-      position: relative;
-    }
-
-    .hero h1 {
-      font-size: 2.5em;
-      background-color: rgba(0, 0, 0, 0.5);
-      padding: 20px 30px;
-      border-radius: 8px;
-      max-width: 90%;
-    }
-
-    .section {
-      padding: 60px 40px;
-      max-width: 1200px;
-      margin: auto;
-    }
-
-    .section h2 {
-      color: var(--azul-medio);
-      margin-bottom: 30px;
-      text-align: center;
-    }
-
-    .cards {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 20px;
-    }
-
-    .card {
-      background: white;
-      padding: 20px;
-      border-radius: 8px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
-      transition: transform 0.3s ease;
-    }
-
-    .card:hover {
-      transform: translateY(-5px);
-    }
-
-    .card-img {
-      width: 100%;
-      height: 180px;
-      object-fit: cover;
-      border-radius: 6px;
-      margin-bottom: 15px;
-    }
-
-    footer {
-      background-color: var(--azul-oscuro);
-      color: white;
-      padding: 30px 40px;
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
-    }
-
-    footer div {
-      margin-bottom: 20px;
-    }
-
-    .redes a {
-      color: white;
-      margin-right: 15px;
-      text-decoration: none;
-    }
-
-    .redes a:hover {
-      text-decoration: underline;
-    }
-
-    /* === Ajuste para sistemas y servicios tecnológicos con 3 columnas === */
-    .servicios-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 20px;
-    }
-
-    @media (max-width: 768px) {
-      .servicios-grid {
-        grid-template-columns: 1fr;
-      }
-    }
-
-    /* === Contacto con formulario moderno === */
-    #contacto {
-      background: #fff;
-      padding: 60px 40px;
-      max-width: 800px;
-      margin: 60px auto;
-      border-radius: 15px;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
-      color: #222;
-    }
-    #contacto h2 {
-      color: var(--azul-medio);
-      margin-bottom: 20px;
-      text-align: center;
-    }
-    #contacto p {
-      text-align: center;
-      margin-bottom: 25px;
-      font-size: 1.1em;
-    }
-    .contact-info {
-      text-align: center;
-      margin-bottom: 30px;
-      font-size: 1em;
-      color: #444;
-    }
-    .contact-info p {
-      margin: 6px 0;
-    }
-    .contact-info a {
-      color: var(--azul-medio);
-      text-decoration: none;
-    }
-    .contact-info a:hover {
-      text-decoration: underline;
-    }
-
-    form.contact-form {
-      max-width: 600px;
-      margin: 0 auto;
-    }
-    form.contact-form .form-group {
-      margin-bottom: 20px;
-    }
-    form.contact-form input,
-    form.contact-form textarea {
-      width: 100%;
-      padding: 12px 15px;
-      border: 2px solid #ccc;
-      border-radius: 10px;
-      font-size: 16px;
-      transition: border-color 0.3s ease;
-    }
-    form.contact-form input:focus,
-    form.contact-form textarea:focus {
-      border-color: var(--azul-medio);
-      outline: none;
-      box-shadow: 0 0 8px rgba(0, 89, 179, 0.4);
-      background-color: #fff;
-    }
-    form.contact-form textarea {
-      min-height: 120px;
-      resize: vertical;
-    }
-    form.contact-form button {
-      background: linear-gradient(45deg, var(--azul-medio), var(--azul-oscuro));
-      color: white;
-      border: none;
-      padding: 14px 25px;
-      border-radius: 10px;
-      font-size: 16px;
-      font-weight: 600;
-      cursor: pointer;
-      transition: background 0.3s ease;
-    }
-    form.contact-form button:hover {
-      background: linear-gradient(45deg, var(--azul-oscuro), var(--azul-medio));
-    }
-
-  </style>
+  <link rel="stylesheet" href="styles.css" />
 </head>
 
 <!-- Botón flotante de WhatsApp -->
@@ -227,29 +12,6 @@
    target="_blank" id="whatsapp-button" title="Chatea con nosotros en WhatsApp">
     <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" />
 </a>
-
-<style>
-    #whatsapp-button {
-        position: fixed;
-        bottom: 20px;
-        right: 20px;
-        z-index: 999;
-        background-color: #25D366;
-        border-radius: 50%;
-        padding: 10px;
-        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
-        transition: transform 0.2s ease;
-    }
-    #whatsapp-button img {
-        width: 50px;
-        height: 50px;
-    }
-    #whatsapp-button:hover {
-        transform: scale(1.1);
-    }
-</style>
-
-
 
 <body>
 
@@ -350,71 +112,67 @@
   </section>
 
   <!-- CONTACTO -->
-<section id="contacto">
-  <h2>Contacto</h2>
-  <p>Estamos listos para ayudarte con tus necesidades tecnológicas. Llámanos o envíanos un mensaje y nos pondremos en contacto lo antes posible.</p>
-  <div class="contact-info">
-    <p><strong>Teléfonos:</strong> <a href="tel:+523111510145">+52 31 11 51 01 45</a> / <a href="tel:+523312454968">+52 33 12 45 49 68</a></p>
-    <p><strong>Email:</strong> <a href="mailto:senzsys.atencion.clientes@gmail.com">senzsys.atencion.clientes@gmail.com</a></p>
-    <p><strong>Ubicación:</strong> Bahía de Banderas, Nayarit, México</p>
-  </div>
-
-  <form action="https://formspree.io/f/mgvzdvdw" method="POST" class="contact-form">
-    <div class="form-group">
-      <input type="text" name="nombre" placeholder="Tu nombre" required />
-    </div>
-    <div class="form-group">
-      <input type="email" name="email" placeholder="Tu correo" required />
-    </div>
-    <div class="form-group">
-      <textarea name="mensaje" placeholder="Escribe tu mensaje" required></textarea>
-    </div>
-    <button type="submit">Enviar</button>
-  </form>
-</section>
-
-
-<footer>
-  <div class="footer-container">
-    <div class="footer-column">
-      <h3>SenzSys</h3>
-      <p>Tecnología que cambia estilos de vida</p>
+  <section id="contacto">
+    <h2>Contacto</h2>
+    <p>Estamos listos para ayudarte con tus necesidades tecnológicas. Llámanos o envíanos un mensaje y nos pondremos en contacto lo antes posible.</p>
+    <div class="contact-info">
+      <p><strong>Teléfonos:</strong> <a href="tel:+523111510145">+52 31 11 51 01 45</a> / <a href="tel:+523312454968">+52 33 12 45 49 68</a></p>
+      <p><strong>Email:</strong> <a href="mailto:senzsys.atencion.clientes@gmail.com">senzsys.atencion.clientes@gmail.com</a></p>
+      <p><strong>Ubicación:</strong> Bahía de Banderas, Nayarit, México</p>
     </div>
 
-    <div class="footer-column">
-      <h3>Redes Sociales</h3>
-      <nav class="footer-social">
-        <a href="#" aria-label="Facebook">Facebook</a>
-        <a href="#" aria-label="Instagram">Instagram</a>
-        <a href="#" aria-label="LinkedIn">LinkedIn</a>
-      </nav>
+    <form action="https://formspree.io/f/mgvzdvdw" method="POST" class="contact-form">
+      <div class="form-group">
+        <input type="text" name="nombre" placeholder="Tu nombre" required />
+      </div>
+      <div class="form-group">
+        <input type="email" name="email" placeholder="Tu correo" required />
+      </div>
+      <div class="form-group">
+        <textarea name="mensaje" placeholder="Escribe tu mensaje" required></textarea>
+      </div>
+      <button type="submit">Enviar</button>
+    </form>
+  </section>
+
+  <footer>
+    <div class="footer-container">
+      <div class="footer-column">
+        <h3>SenzSys</h3>
+        <p>Tecnología que cambia estilos de vida</p>
+      </div>
+
+      <div class="footer-column">
+        <h3>Redes Sociales</h3>
+        <nav class="footer-social">
+          <a href="#" aria-label="Facebook">Facebook</a>
+          <a href="#" aria-label="Instagram">Instagram</a>
+          <a href="#" aria-label="LinkedIn">LinkedIn</a>
+        </nav>
+      </div>
+
+      <div class="footer-column">
+        <h3>Misión</h3>
+        <p>Brindar soluciones tecnológicas innovadoras que transformen y mejoren la calidad de vida de nuestros clientes, apoyando su crecimiento y eficiencia.</p>
+      </div>
+
+      <div class="footer-column">
+        <h3>Visión</h3>
+        <p>Ser líderes reconocidos en tecnología aplicada, impulsando el desarrollo sustentable y la innovación en cada proyecto que emprendemos.</p>
+      </div>
+
+      <div class="footer-column">
+        <h3>Valores</h3>
+        <ul>
+          <li>Compromiso</li>
+          <li>Calidad</li>
+          <li>Innovación</li>
+          <li>Responsabilidad</li>
+          <li>Confianza</li>
+        </ul>
+      </div>
     </div>
-
-    <div class="footer-column">
-      <h3>Misión</h3>
-      <p>Brindar soluciones tecnológicas innovadoras que transformen y mejoren la calidad de vida de nuestros clientes, apoyando su crecimiento y eficiencia.</p>
-    </div>
-
-    <div class="footer-column">
-      <h3>Visión</h3>
-      <p>Ser líderes reconocidos en tecnología aplicada, impulsando el desarrollo sustentable y la innovación en cada proyecto que emprendemos.</p>
-    </div>
-
-    <div class="footer-column">
-      <h3>Valores</h3>
-      <ul>
-        <li>Compromiso</li>
-        <li>Calidad</li>
-        <li>Innovación</li>
-        <li>Responsabilidad</li>
-        <li>Confianza</li>
-      </ul>
-    </div>
-  </div>
-</footer>
-
-
-
+  </footer>
 
 </body>
 </html>
