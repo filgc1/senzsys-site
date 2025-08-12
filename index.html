@@ -4,14 +4,360 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>SenzSys | Tecnología que cambia estilos de vida</title>
-  <link rel="stylesheet" href="styles.css" />
-</head>
+  <style>
+    :root {
+      --azul-oscuro: #00264d;
+      --azul-medio: #0059b3;
+      --azul-claro: #e6f0ff;
+      --texto: #222;
+    }
 
-<!-- Botón flotante de WhatsApp -->
-<a href="https://wa.me/523111510145?text=Hola%2C%20estoy%20interesado%20en%20sus%20servicios" 
-   target="_blank" id="whatsapp-button" title="Chatea con nosotros en WhatsApp">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" />
-</a>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: var(--azul-claro);
+      color: var(--texto);
+    }
+
+    header {
+      background-color: var(--azul-oscuro);
+      color: white;
+      padding: 20px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 999;
+    }
+
+    header img {
+      height: 50px;
+    }
+
+    nav a {
+      color: white;
+      margin-left: 20px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    nav a:hover {
+      color: #99ccff;
+    }
+
+    /* === Carrusel === */
+    .carousel {
+      position: relative;
+      max-width: 100%;
+      max-height: 80vh;
+      margin: auto;
+      overflow: hidden;
+      border-radius: 8px;
+    }
+
+    .carousel-slide {
+      display: none;
+      width: 100%;
+      height: 80vh;
+      object-fit: cover;
+    }
+
+    .carousel-slide.active {
+      display: block;
+    }
+
+    .carousel-button {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background-color: rgba(0, 38, 77, 0.6);
+      border: none;
+      color: white;
+      font-size: 2em;
+      padding: 8px 15px;
+      cursor: pointer;
+      border-radius: 50%;
+      user-select: none;
+      transition: background-color 0.3s ease;
+      z-index: 10;
+    }
+
+    .carousel-button:hover {
+      background-color: rgba(0, 38, 77, 0.9);
+    }
+
+    .carousel-button.prev {
+      left: 10px;
+    }
+
+    .carousel-button.next {
+      right: 10px;
+    }
+
+    /* Texto debajo del carrusel */
+    .hero-text {
+      max-width: 900px;
+      margin: 20px auto 60px auto;
+      padding: 10px 20px;
+      text-align: center;
+      font-size: 2.5em;
+      color: white;
+      background-color: rgba(0, 0, 0, 0.5);
+      border-radius: 8px;
+      font-weight: 600;
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    /* Secciones generales */
+    .section {
+      padding: 60px 40px;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .section h2 {
+      color: var(--azul-medio);
+      margin-bottom: 30px;
+      text-align: center;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+    }
+
+    .card {
+      background: white;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+    }
+
+    .card-img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      border-radius: 6px;
+      margin-bottom: 15px;
+    }
+
+    footer {
+      background: linear-gradient(135deg, #00264d, #0059b3);
+      color: #e0e7ff;
+      padding: 50px 40px;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    .footer-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 40px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .footer-column {
+      flex: 1 1 300px;
+      min-width: 300px;
+    }
+
+    .footer-column h3 {
+      font-size: 1.3rem;
+      margin-bottom: 15px;
+      color: #a9c9ff;
+      border-bottom: 2px solid #a9c9ff;
+      padding-bottom: 6px;
+    }
+
+    .footer-column p {
+      font-size: 1rem;
+      line-height: 1.6;
+      color: #d0d9ff;
+    }
+
+    .footer-social a {
+      display: inline-block;
+      margin-right: 20px;
+      color: #c3d1ff;
+      font-weight: 600;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    .footer-social a:hover {
+      color: #ffffff;
+      text-decoration: underline;
+    }
+
+    /* Responsive footer */
+    @media (max-width: 768px) {
+      .footer-container {
+        flex-direction: column;
+        gap: 30px;
+      }
+      .footer-column {
+        min-width: auto;
+      }
+    }
+
+    /* Contacto con formulario moderno */
+    #contacto {
+      background: #fff;
+      padding: 60px 40px;
+      max-width: 800px;
+      margin: 60px auto;
+      border-radius: 15px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+      color: #222;
+    }
+    #contacto h2 {
+      color: var(--azul-medio);
+      margin-bottom: 20px;
+      text-align: center;
+    }
+    #contacto p {
+      text-align: center;
+      margin-bottom: 25px;
+      font-size: 1.1em;
+    }
+    .contact-info {
+      text-align: center;
+      margin-bottom: 30px;
+      font-size: 1em;
+      color: #444;
+    }
+    .contact-info p {
+      margin: 6px 0;
+    }
+    .contact-info a {
+      color: var(--azul-medio);
+      text-decoration: none;
+    }
+    .contact-info a:hover {
+      text-decoration: underline;
+    }
+
+    form.contact-form {
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    form.contact-form .form-group {
+      margin-bottom: 20px;
+    }
+    form.contact-form input,
+    form.contact-form textarea {
+      width: 100%;
+      padding: 12px 15px;
+      border: 2px solid #ccc;
+      border-radius: 10px;
+      font-size: 16px;
+      transition: border-color 0.3s ease;
+    }
+    form.contact-form input:focus,
+    form.contact-form textarea:focus {
+      border-color: var(--azul-medio);
+      outline: none;
+      box-shadow: 0 0 8px rgba(0, 89, 179, 0.4);
+      background-color: #fff;
+    }
+    form.contact-form textarea {
+      min-height: 120px;
+      resize: vertical;
+    }
+    form.contact-form button {
+      background: linear-gradient(45deg, var(--azul-medio), var(--azul-oscuro));
+      color: white;
+      border: none;
+      padding: 14px 25px;
+      border-radius: 10px;
+      font-size: 16px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+    form.contact-form button:hover {
+      background: linear-gradient(45deg, var(--azul-oscuro), var(--azul-medio));
+    }
+
+    /* Ajuste específico para la imagen hero en móviles */
+    @media (max-width: 768px) {
+      .hero-text {
+        font-size: 1.8em;
+        margin: 15px auto 40px auto;
+      }
+      /* Carrusel slides */
+      .carousel-slide {
+        height: 50vh;
+      }
+    }
+
+    /* Nueva sección Misión, Visión y Valores */
+    .mvv-section {
+      background: #f0f4ff;
+      color: var(--azul-oscuro);
+      padding: 40px 20px;
+      max-width: 1200px;
+      margin: 0 auto 40px auto;
+      font-family: 'Segoe UI', sans-serif;
+      border-top: 3px solid var(--azul-medio);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 30px;
+      justify-content: center;
+    }
+    .mvv-column {
+      flex: 1 1 280px;
+      min-width: 280px;
+    }
+    .mvv-column h3 {
+      border-bottom: 2px solid var(--azul-medio);
+      padding-bottom: 6px;
+      margin-bottom: 12px;
+    }
+    .mvv-column p {
+      font-size: 1rem;
+      line-height: 1.5;
+    }
+    .mvv-column ul {
+      list-style-type: disc;
+      margin-left: 20px;
+      padding-left: 0;
+    }
+    .mvv-column ul li {
+      margin-bottom: 8px;
+      font-size: 1rem;
+      line-height: 1.5;
+    }
+
+    /* SISTEMAS Y SERVICIOS TECNOLÓGICOS 3 en 3 */
+    .servicios-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    @media (max-width: 992px) {
+      .servicios-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+    @media (max-width: 600px) {
+      .servicios-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+  </style>
+</head>
 
 <body>
 
@@ -27,25 +373,15 @@
   </header>
 
   <!-- Carrusel -->
-  <section class="hero" id="inicio">
-
-    <div class="carousel">
-      <div class="carousel-slide fade active">
-        <img src="img/senzsys.JPG" alt="Tecnología 1" />
-      </div>
-      <div class="carousel-slide fade">
-        <img src="img/senzsys2.JPG" alt="Tecnología 2" />
-      </div>
-      <div class="carousel-slide fade">
-        <img src="img/senzsys3.JPG" alt="Tecnología 3" />
-      </div>
-
-      <button class="carousel-btn prev" aria-label="Imagen anterior">&#10094;</button>
-      <button class="carousel-btn next" aria-label="Imagen siguiente">&#10095;</button>
-    </div>
-
-    <h1 class="hero-text">Tecnología que cambia estilos de vida</h1>
+  <section class="carousel" id="inicio">
+    <img src="img/senzsys.JPG" alt="SenzSys" class="carousel-slide active" />
+    <img src="img/senzsys2.JPG" alt="Imagen 2" class="carousel-slide" />
+    <img src="img/senzsys3.JPG" alt="Imagen 3" class="carousel-slide" />
+    <button class="carousel-button prev" aria-label="Anterior">&#10094;</button>
+    <button class="carousel-button next" aria-label="Siguiente">&#10095;</button>
   </section>
+
+  <div class="hero-text">Tecnología que cambia estilos de vida</div>
 
   <!-- ACTIVIDADES PRINCIPALES -->
   <section class="section" id="actividades">
@@ -94,7 +430,7 @@
   <!-- SISTEMAS Y SERVICIOS TECNOLÓGICOS -->
   <section class="section" id="sistemas">
     <h2>Sistemas y Servicios Tecnológicos</h2>
-    <div class="cards servicios-grid">
+    <div class="servicios-grid">
       <div class="card">
         <img src="img/cctv.webp" alt="CCTV" class="card-img" />
         <h3>CCTV</h3>
@@ -148,49 +484,121 @@
       <div class="form-group">
         <textarea name="mensaje" placeholder="Escribe tu mensaje" required></textarea>
       </div>
-      <button type="submit">Enviar</button>
+      <button type="submit">Enviar mensaje</button>
     </form>
   </section>
 
+  <!-- FOOTER -->
   <footer>
     <div class="footer-container">
       <div class="footer-column">
-        <h3>SenzSys</h3>
-        <p>Tecnología que cambia estilos de vida</p>
+        <h3>Nosotros</h3>
+        <p>Somos una empresa comprometida con la innovación tecnológica y la mejora continua. Nuestro objetivo es ofrecer soluciones adaptadas que cambian estilos de vida y potencian a nuestros clientes.</p>
       </div>
 
       <div class="footer-column">
-        <h3>Redes Sociales</h3>
-        <nav class="footer-social">
-          <a href="#" aria-label="Facebook">Facebook</a>
-          <a href="#" aria-label="Instagram">Instagram</a>
-          <a href="#" aria-label="LinkedIn">LinkedIn</a>
-        </nav>
-      </div>
-
-      <div class="footer-column">
-        <h3>Misión</h3>
-        <p>Brindar soluciones tecnológicas innovadoras que transformen y mejoren la calidad de vida de nuestros clientes, apoyando su crecimiento y eficiencia.</p>
-      </div>
-
-      <div class="footer-column">
-        <h3>Visión</h3>
-        <p>Ser líderes reconocidos en tecnología aplicada, impulsando el desarrollo sustentable y la innovación en cada proyecto que emprendemos.</p>
-      </div>
-
-      <div class="footer-column">
-        <h3>Valores</h3>
-        <ul>
-          <li>Compromiso</li>
-          <li>Calidad</li>
-          <li>Innovación</li>
-          <li>Responsabilidad</li>
-          <li>Confianza</li>
-        </ul>
+        <h3>Contacto</h3>
+        <p>Tel: +52 31 11 51 01 45</p>
+        <p>Email: senzsys.atencion.clientes@gmail.com</p>
+        <div class="footer-social">
+          <a href="https://www.facebook.com/senzsys" target="_blank" rel="noopener" aria-label="Facebook">Facebook</a>
+          <a href="https://twitter.com/senzsys" target="_blank" rel="noopener" aria-label="Twitter">Twitter</a>
+          <a href="https://www.linkedin.com/company/senzsys" target="_blank" rel="noopener" aria-label="LinkedIn">LinkedIn</a>
+        </div>
       </div>
     </div>
   </footer>
 
-  <script src="carousel.js"></script>
+  <!-- NUEVA SECCIÓN MISIÓN, VISIÓN Y VALORES -->
+  <section class="mvv-section" aria-label="Misión, Visión y Valores">
+    <div class="mvv-column">
+      <h3>Misión</h3>
+      <p>Brindar soluciones tecnológicas innovadoras y confiables que transformen y mejoren la calidad de vida de nuestros clientes, adaptándonos a sus necesidades específicas con compromiso y profesionalismo.</p>
+    </div>
+    <div class="mvv-column">
+      <h3>Visión</h3>
+      <p>Ser líderes reconocidos en el sector tecnológico, ofreciendo productos y servicios de alta calidad que impulsen la transformación digital en los sectores residencial, industrial y turístico.</p>
+    </div>
+    <div class="mvv-column">
+      <h3>Valores</h3>
+      <ul>
+        <li>Innovación</li>
+        <li>Compromiso</li>
+        <li>Calidad</li>
+        <li>Transparencia</li>
+        <li>Trabajo en equipo</li>
+        <li>Responsabilidad</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Botón WhatsApp fijo abajo derecha -->
+  <a
+    href="https://wa.me/5233111510145?text=Buenas%20tardes%2C%20gracias%20por%20considerarnos%3B%20Nos%20gustar%C3%ADa%20mucho%20escuchar%20tu%20necesidad%E2%80%A6%20nuestros%20agentes%20podr%C3%ADan%20tardar%20en%20contestar%20de%2015%20a%2020%20minutos."
+    target="_blank"
+    rel="noopener"
+    style="
+      position: fixed;
+      bottom: 25px;
+      right: 25px;
+      background-color: #25d366;
+      color: white;
+      border-radius: 50%;
+      width: 60px;
+      height: 60px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+      text-decoration: none;
+      z-index: 1000;
+    "
+    aria-label="WhatsApp"
+  >
+    <svg xmlns="http://www.w3.org/2000/svg" fill="white" viewBox="0 0 24 24" width="32px" height="32px">
+      <path d="M20.52 3.48A11.842 11.842 0 0012.003.001a11.93 11.93 0 00-10.68 17.68L.75 23.25l5.605-1.464a11.857 11.857 0 006.005 1.794h.004c6.595 0 11.994-5.41 11.994-12.078a12.37 12.37 0 00-3.835-8.02zm-8.518 17.14a9.866 9.866 0 01-5.038-1.435l-.36-.217-3.324.868.888-3.25-.235-.334a9.882 9.882 0 011.5-13.468 9.878 9.878 0 0113.946 1.967 9.846 9.846 0 01-8.715 13.37zm5.084-7.258c-.274-.138-1.62-.8-1.871-.89-.25-.088-.43-.138-.61.138-.183.274-.707.89-.866 1.07-.16.183-.32.205-.594.068-.274-.138-1.156-.427-2.204-1.355-.815-.726-1.364-1.625-1.525-1.9-.16-.274-.017-.422.12-.56.124-.125.274-.32.41-.48.136-.16.18-.274.274-.457.09-.183.045-.342-.022-.48-.068-.138-.61-1.47-.837-2.03-.22-.53-.444-.46-.61-.47l-.52-.01c-.16 0-.42.06-.64.274-.223.217-.85.83-.85 2.02 0 1.19.87 2.34.99 2.5.12.16 1.71 2.61 4.14 3.66.58.25 1.03.4 1.38.51.58.183 1.11.157 1.53.095.47-.07 1.44-.59 1.65-1.16.21-.57.21-1.06.15-1.16-.07-.1-.25-.16-.52-.29z"/>
+    </svg>
+  </a>
+
+  <script>
+    // Carrusel JS
+    const slides = document.querySelectorAll('.carousel-slide');
+    const prevBtn = document.querySelector('.carousel-button.prev');
+    const nextBtn = document.querySelector('.carousel-button.next');
+    let currentSlide = 0;
+    let slideInterval = setInterval(nextSlide, 20000); // 20 segundos
+
+    function showSlide(index) {
+      slides.forEach((slide, i) => {
+        slide.classList.toggle('active', i === index);
+      });
+    }
+
+    function nextSlide() {
+      currentSlide = (currentSlide + 1) % slides.length;
+      showSlide(currentSlide);
+    }
+
+    function prevSlide() {
+      currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+      showSlide(currentSlide);
+    }
+
+    nextBtn.addEventListener('click', () => {
+      nextSlide();
+      resetInterval();
+    });
+
+    prevBtn.addEventListener('click', () => {
+      prevSlide();
+      resetInterval();
+    });
+
+    function resetInterval() {
+      clearInterval(slideInterval);
+      slideInterval = setInterval(nextSlide, 20000);
+    }
+  </script>
+
 </body>
 </html>
