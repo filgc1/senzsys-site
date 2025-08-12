@@ -46,35 +46,40 @@
       color: #99ccff;
     }
 
-    /* === Carrusel === */
+    /* Carrusel */
+    #inicio {
+      max-width: 1200px;
+      margin: 40px auto 20px;
+      padding: 0 20px;
+    }
     .carousel {
       position: relative;
-      max-width: 100%;
-      max-height: 80vh;
-      margin: auto;
       overflow: hidden;
       border-radius: 8px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.2);
     }
-
     .carousel-slide {
       display: none;
       width: 100%;
-      height: 80vh;
+      height: 60vh;
       object-fit: cover;
     }
-
     .carousel-slide.active {
       display: block;
+      animation: fadeIn 1s ease-in-out;
     }
-
+    @keyframes fadeIn {
+      from {opacity: 0;}
+      to {opacity: 1;}
+    }
     .carousel-button {
       position: absolute;
       top: 50%;
       transform: translateY(-50%);
-      background-color: rgba(0, 38, 77, 0.6);
+      background-color: rgba(0,0,0,0.4);
       border: none;
       color: white;
-      font-size: 2em;
+      font-size: 2rem;
       padding: 8px 15px;
       cursor: pointer;
       border-radius: 50%;
@@ -82,34 +87,26 @@
       transition: background-color 0.3s ease;
       z-index: 10;
     }
-
     .carousel-button:hover {
-      background-color: rgba(0, 38, 77, 0.9);
+      background-color: rgba(0,0,0,0.7);
     }
-
     .carousel-button.prev {
       left: 10px;
     }
-
     .carousel-button.next {
       right: 10px;
     }
-
     /* Texto debajo del carrusel */
     .hero-text {
-      max-width: 900px;
-      margin: 20px auto 60px auto;
-      padding: 10px 20px;
       text-align: center;
-      font-size: 2.5em;
+      margin-top: 15px;
       color: white;
-      background-color: rgba(0, 0, 0, 0.5);
-      border-radius: 8px;
+      font-size: 2rem;
       font-weight: 600;
       font-family: 'Segoe UI', sans-serif;
+      text-shadow: 1px 1px 5px rgba(0,0,0,0.7);
     }
 
-    /* Secciones generales */
     .section {
       padding: 60px 40px;
       max-width: 1200px;
@@ -149,66 +146,42 @@
     }
 
     footer {
-      background: linear-gradient(135deg, #00264d, #0059b3);
-      color: #e0e7ff;
-      padding: 50px 40px;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    }
-
-    .footer-container {
+      background-color: var(--azul-oscuro);
+      color: white;
+      padding: 30px 40px;
       display: flex;
       flex-wrap: wrap;
       justify-content: space-between;
-      gap: 40px;
-      max-width: 1200px;
-      margin: 0 auto;
     }
 
-    .footer-column {
-      flex: 1 1 300px;
-      min-width: 300px;
+    footer div {
+      margin-bottom: 20px;
     }
 
-    .footer-column h3 {
-      font-size: 1.3rem;
-      margin-bottom: 15px;
-      color: #a9c9ff;
-      border-bottom: 2px solid #a9c9ff;
-      padding-bottom: 6px;
-    }
-
-    .footer-column p {
-      font-size: 1rem;
-      line-height: 1.6;
-      color: #d0d9ff;
-    }
-
-    .footer-social a {
-      display: inline-block;
-      margin-right: 20px;
-      color: #c3d1ff;
-      font-weight: 600;
+    .redes a {
+      color: white;
+      margin-right: 15px;
       text-decoration: none;
-      transition: color 0.3s ease;
     }
 
-    .footer-social a:hover {
-      color: #ffffff;
+    .redes a:hover {
       text-decoration: underline;
     }
 
-    /* Responsive footer */
+    /* === Ajuste para sistemas y servicios tecnológicos con 3 columnas === */
+    .servicios-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
     @media (max-width: 768px) {
-      .footer-container {
-        flex-direction: column;
-        gap: 30px;
-      }
-      .footer-column {
-        min-width: auto;
+      .servicios-grid {
+        grid-template-columns: 1fr;
       }
     }
 
-    /* Contacto con formulario moderno */
+    /* === Contacto con formulario moderno === */
     #contacto {
       background: #fff;
       padding: 60px 40px;
@@ -287,73 +260,106 @@
       background: linear-gradient(45deg, var(--azul-oscuro), var(--azul-medio));
     }
 
-    /* Ajuste específico para la imagen hero en móviles */
-    @media (max-width: 768px) {
-      .hero-text {
-        font-size: 1.8em;
-        margin: 15px auto 40px auto;
-      }
-      /* Carrusel slides */
-      .carousel-slide {
-        height: 50vh;
-      }
+    /* Footer columnas */
+    footer {
+      background: linear-gradient(135deg, #00264d, #0059b3);
+      color: #e0e7ff;
+      padding: 50px 40px;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     }
 
-    /* Nueva sección Misión, Visión y Valores */
-    .mvv-section {
-      background: #f0f4ff;
-      color: var(--azul-oscuro);
-      padding: 40px 20px;
-      max-width: 1200px;
-      margin: 0 auto 40px auto;
-      font-family: 'Segoe UI', sans-serif;
-      border-top: 3px solid var(--azul-medio);
+    .footer-container {
       display: flex;
       flex-wrap: wrap;
-      gap: 30px;
-      justify-content: center;
-    }
-    .mvv-column {
-      flex: 1 1 280px;
-      min-width: 280px;
-    }
-    .mvv-column h3 {
-      border-bottom: 2px solid var(--azul-medio);
-      padding-bottom: 6px;
-      margin-bottom: 12px;
-    }
-    .mvv-column p {
-      font-size: 1rem;
-      line-height: 1.5;
-    }
-    .mvv-column ul {
-      list-style-type: disc;
-      margin-left: 20px;
-      padding-left: 0;
-    }
-    .mvv-column ul li {
-      margin-bottom: 8px;
-      font-size: 1rem;
-      line-height: 1.5;
-    }
-
-    /* SISTEMAS Y SERVICIOS TECNOLÓGICOS 3 en 3 */
-    .servicios-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 20px;
+      justify-content: space-between;
+      gap: 40px;
       max-width: 1200px;
       margin: 0 auto;
     }
-    @media (max-width: 992px) {
-      .servicios-grid {
-        grid-template-columns: repeat(2, 1fr);
+
+    .footer-column {
+      flex: 1 1 180px;
+      min-width: 180px;
+    }
+
+    .footer-column h3 {
+      font-size: 1.3rem;
+      margin-bottom: 15px;
+      color: #a9c9ff;
+      border-bottom: 2px solid #a9c9ff;
+      padding-bottom: 6px;
+    }
+
+    .footer-column p,
+    .footer-column ul {
+      font-size: 1rem;
+      line-height: 1.6;
+      color: #d0d9ff;
+    }
+
+    .footer-column ul {
+      list-style: inside circle;
+      padding-left: 0;
+      margin-top: 8px;
+    }
+
+    .footer-column ul li {
+      margin-bottom: 8px;
+    }
+
+    .footer-social a {
+      display: inline-block;
+      margin-right: 20px;
+      color: #c3d1ff;
+      font-weight: 600;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    .footer-social a:hover {
+      color: #ffffff;
+      text-decoration: underline;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .footer-container {
+        flex-direction: column;
+        gap: 30px;
+      }
+      .footer-column {
+        min-width: auto;
       }
     }
-    @media (max-width: 600px) {
-      .servicios-grid {
-        grid-template-columns: 1fr;
+
+    /* Ajuste específico para la imagen hero en móviles */
+    @media (max-width: 768px) {
+      .hero-text {
+        font-size: 1.6rem;
       }
+      .carousel-slide {
+        height: 40vh;
+      }
+    }
+
+    /* Botón flotante WhatsApp */
+    #whatsapp-button {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      z-index: 999;
+      background-color: #25D366;
+      border-radius: 50%;
+      padding: 10px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+      transition: transform 0.2s ease;
+    }
+    #whatsapp-button img {
+      width: 50px;
+      height: 50px;
+    }
+    #whatsapp-button:hover {
+      transform: scale(1.1);
     }
 
   </style>
@@ -373,15 +379,16 @@
   </header>
 
   <!-- Carrusel -->
-  <section class="carousel" id="inicio">
-    <img src="img/senzsys.JPG" alt="SenzSys" class="carousel-slide active" />
-    <img src="img/senzsys2.JPG" alt="Imagen 2" class="carousel-slide" />
-    <img src="img/senzsys3.JPG" alt="Imagen 3" class="carousel-slide" />
-    <button class="carousel-button prev" aria-label="Anterior">&#10094;</button>
-    <button class="carousel-button next" aria-label="Siguiente">&#10095;</button>
+  <section id="inicio">
+    <div class="carousel" aria-label="Carrusel de imágenes SenzSys">
+      <img src="img/senzsys.JPG" alt="Imagen SenzSys 1" class="carousel-slide" />
+      <img src="img/senzsys2.JPG" alt="Imagen SenzSys 2" class="carousel-slide" />
+      <img src="img/senzsys3.JPG" alt="Imagen SenzSys 3" class="carousel-slide" />
+      <button class="carousel-button prev" aria-label="Imagen anterior">&#10094;</button>
+      <button class="carousel-button next" aria-label="Imagen siguiente">&#10095;</button>
+    </div>
+    <div class="hero-text">Tecnología que cambia estilos de vida</div>
   </section>
-
-  <div class="hero-text">Tecnología que cambia estilos de vida</div>
 
   <!-- ACTIVIDADES PRINCIPALES -->
   <section class="section" id="actividades">
@@ -430,7 +437,7 @@
   <!-- SISTEMAS Y SERVICIOS TECNOLÓGICOS -->
   <section class="section" id="sistemas">
     <h2>Sistemas y Servicios Tecnológicos</h2>
-    <div class="servicios-grid">
+    <div class="cards servicios-grid">
       <div class="card">
         <img src="img/cctv.webp" alt="CCTV" class="card-img" />
         <h3>CCTV</h3>
@@ -464,109 +471,82 @@
     </div>
   </section>
 
+  <!-- MISIÓN, VISIÓN Y VALORES -->
+  <section class="section" id="mision-vision-valores">
+    <h2>Misión, Visión y Valores</h2>
+    <div class="cards">
+      <div class="card">
+        <img src="img/mision.JPG" alt="Misión" class="card-img" />
+        <h3>Misión</h3>
+        <p>Brindar soluciones tecnológicas innovadoras y personalizadas que mejoren la calidad de vida de nuestros clientes, optimicen sus procesos y garanticen seguridad y eficiencia.</p>
+      </div>
+      <div class="card">
+        <img src="img/vision.JPG" alt="Visión" class="card-img" />
+        <h3>Visión</h3>
+        <p>Ser líderes en el sector tecnológico en México y Latinoamérica, reconocidos por nuestra calidad, compromiso y capacidad de adaptación a las nuevas tendencias del mercado.</p>
+      </div>
+      <div class="card">
+        <img src="img/valores.JPG" alt="Valores" class="card-img" />
+        <h3>Valores</h3>
+        <p>Innovación, integridad, compromiso, calidad, trabajo en equipo y orientación al cliente son los principios que guían todas nuestras acciones y decisiones.</p>
+      </div>
+    </div>
+  </section>
+
   <!-- CONTACTO -->
   <section id="contacto">
     <h2>Contacto</h2>
     <p>Estamos listos para ayudarte con tus necesidades tecnológicas. Llámanos o envíanos un mensaje y nos pondremos en contacto lo antes posible.</p>
     <div class="contact-info">
-      <p><strong>Teléfonos:</strong> <a href="tel:+523111510145">+52 31 11 51 01 45</a> / <a href="tel:+523312454968">+52 33 12 45 49 68</a></p>
-      <p><strong>Email:</strong> <a href="mailto:senzsys.atencion.clientes@gmail.com">senzsys.atencion.clientes@gmail.com</a></p>
-      <p><strong>Ubicación:</strong> Bahía de Banderas, Nayarit, México</p>
+      <p><strong>Teléfono:</strong> <a href="tel:+523312345678">+52 33 1234 5678</a></p>
+      <p><strong>Email:</strong> <a href="mailto:contacto@senzsys.com">contacto@senzsys.com</a></p>
+      <p><strong>Dirección:</strong> Av. Tecnológica 123, Guadalajara, Jalisco, México</p>
     </div>
-
-    <form action="https://formspree.io/f/mgvzdvdw" method="POST" class="contact-form">
+    <form class="contact-form" action="mailto:contacto@senzsys.com" method="POST" enctype="text/plain">
       <div class="form-group">
         <input type="text" name="nombre" placeholder="Tu nombre" required />
       </div>
       <div class="form-group">
-        <input type="email" name="email" placeholder="Tu correo" required />
+        <input type="email" name="email" placeholder="Tu correo electrónico" required />
       </div>
       <div class="form-group">
-        <textarea name="mensaje" placeholder="Escribe tu mensaje" required></textarea>
+        <textarea name="mensaje" placeholder="Tu mensaje" required></textarea>
       </div>
-      <button type="submit">Enviar mensaje</button>
+      <button type="submit">Enviar</button>
     </form>
   </section>
 
-  <!-- FOOTER -->
   <footer>
     <div class="footer-container">
       <div class="footer-column">
-        <h3>Nosotros</h3>
-        <p>Somos una empresa comprometida con la innovación tecnológica y la mejora continua. Nuestro objetivo es ofrecer soluciones adaptadas que cambian estilos de vida y potencian a nuestros clientes.</p>
+        <h3>Sobre SenzSys</h3>
+        <p>Somos una empresa dedicada a transformar estilos de vida mediante tecnología de punta, brindando soluciones integrales y personalizadas.</p>
       </div>
-
       <div class="footer-column">
         <h3>Contacto</h3>
-        <p>Tel: +52 31 11 51 01 45</p>
-        <p>Email: senzsys.atencion.clientes@gmail.com</p>
-        <div class="footer-social">
-          <a href="https://www.facebook.com/senzsys" target="_blank" rel="noopener" aria-label="Facebook">Facebook</a>
-          <a href="https://twitter.com/senzsys" target="_blank" rel="noopener" aria-label="Twitter">Twitter</a>
-          <a href="https://www.linkedin.com/company/senzsys" target="_blank" rel="noopener" aria-label="LinkedIn">LinkedIn</a>
+        <p>Tel: +52 33 1234 5678</p>
+        <p>Email: contacto@senzsys.com</p>
+        <p>Av. Tecnológica 123, Guadalajara, Jalisco</p>
+        <div class="footer-social redes">
+          <a href="#" aria-label="Facebook">Facebook</a>
+          <a href="#" aria-label="Twitter">Twitter</a>
+          <a href="#" aria-label="LinkedIn">LinkedIn</a>
         </div>
       </div>
     </div>
   </footer>
 
-  <!-- NUEVA SECCIÓN MISIÓN, VISIÓN Y VALORES -->
-  <section class="mvv-section" aria-label="Misión, Visión y Valores">
-    <div class="mvv-column">
-      <h3>Misión</h3>
-      <p>Brindar soluciones tecnológicas innovadoras y confiables que transformen y mejoren la calidad de vida de nuestros clientes, adaptándonos a sus necesidades específicas con compromiso y profesionalismo.</p>
-    </div>
-    <div class="mvv-column">
-      <h3>Visión</h3>
-      <p>Ser líderes reconocidos en el sector tecnológico, ofreciendo productos y servicios de alta calidad que impulsen la transformación digital en los sectores residencial, industrial y turístico.</p>
-    </div>
-    <div class="mvv-column">
-      <h3>Valores</h3>
-      <ul>
-        <li>Innovación</li>
-        <li>Compromiso</li>
-        <li>Calidad</li>
-        <li>Transparencia</li>
-        <li>Trabajo en equipo</li>
-        <li>Responsabilidad</li>
-      </ul>
-    </div>
-  </section>
-
-  <!-- Botón WhatsApp fijo abajo derecha -->
-  <a
-    href="https://wa.me/523111510145?text=Buenas%20tardes%2C%20gracias%20por%20considerarnos%3B%20Nos%20gustar%C3%ADa%20mucho%20escuchar%20tu%20necesidad%E2%80%A6%20nuestros%20agentes%20podr%C3%ADan%20tardar%20en%20contestar%20de%2015%20a%2020%20minutos."
-    target="_blank"
-    rel="noopener"
-    style="
-      position: fixed;
-      bottom: 25px;
-      right: 25px;
-      background-color: #25d366;
-      color: white;
-      border-radius: 50%;
-      width: 60px;
-      height: 60px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
-      text-decoration: none;
-      z-index: 1000;
-    "
-    aria-label="WhatsApp"
-  >
-    <svg xmlns="http://www.w3.org/2000/svg" fill="white" viewBox="0 0 24 24" width="32px" height="32px">
-      <path d="M20.52 3.48A11.842 11.842 0 0012.003.001a11.93 11.93 0 00-10.68 17.68L.75 23.25l5.605-1.464a11.857 11.857 0 006.005 1.794h.004c6.595 0 11.994-5.41 11.994-12.078a12.37 12.37 0 00-3.835-8.02zm-8.518 17.14a9.866 9.866 0 01-5.038-1.435l-.36-.217-3.324.868.888-3.25-.235-.334a9.882 9.882 0 011.5-13.468 9.878 9.878 0 0113.946 1.967 9.846 9.846 0 01-8.715 13.37zm5.084-7.258c-.274-.138-1.62-.8-1.871-.89-.25-.088-.43-.138-.61.138-.183.274-.707.89-.866 1.07-.16.183-.32.205-.594.068-.274-.138-1.156-.427-2.204-1.355-.815-.726-1.364-1.625-1.525-1.9-.16-.274-.017-.422.12-.56.124-.125.274-.32.41-.48.136-.16.18-.274.274-.457.09-.183.045-.342-.022-.48-.068-.138-.61-1.47-.837-2.03-.22-.53-.444-.46-.61-.47l-.52-.01c-.16 0-.42.06-.64.274-.223.217-.85.83-.85 2.02 0 1.19.87 2.34.99 2.5.12.16 1.71 2.61 4.14 3.66.58.25 1.03.4 1.38.51.58.183 1.11.157 1.53.095.47-.07 1.44-.59 1.65-1.16.21-.57.21-1.06.15-1.16-.07-.1-.25-.16-.52-.29z"/>
-    </svg>
+  <!-- Botón WhatsApp flotante -->
+  <a href="https://wa.me/523311234567" target="_blank" rel="noopener" id="whatsapp-button" aria-label="Contacto WhatsApp">
+    <img src="img/whatsapp-icon.png" alt="WhatsApp" />
   </a>
 
   <script>
-    // Carrusel JS
+    // Script para carrusel simple
     const slides = document.querySelectorAll('.carousel-slide');
     const prevBtn = document.querySelector('.carousel-button.prev');
     const nextBtn = document.querySelector('.carousel-button.next');
     let currentSlide = 0;
-    let slideInterval = setInterval(nextSlide, 20000); // 20 segundos
 
     function showSlide(index) {
       slides.forEach((slide, i) => {
@@ -584,20 +564,14 @@
       showSlide(currentSlide);
     }
 
-    nextBtn.addEventListener('click', () => {
-      nextSlide();
-      resetInterval();
-    });
+    prevBtn.addEventListener('click', prevSlide);
+    nextBtn.addEventListener('click', nextSlide);
 
-    prevBtn.addEventListener('click', () => {
-      prevSlide();
-      resetInterval();
-    });
+    // Auto avanzar cada 5 segundos
+    setInterval(nextSlide, 5000);
 
-    function resetInterval() {
-      clearInterval(slideInterval);
-      slideInterval = setInterval(nextSlide, 20000);
-    }
+    // Mostrar primera imagen al cargar
+    showSlide(currentSlide);
   </script>
 
 </body>
