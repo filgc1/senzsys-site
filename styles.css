@@ -161,3 +161,16 @@ footer {
     min-width: auto;
   }
 }
+
+
+/* Ajuste específico para la imagen hero en móviles */
+@media (max-width: 768px) {
+  .hero {
+    background-size: contain; /* Muestra la imagen completa */
+    background-position: center top;
+    background-repeat: no-repeat;
+    height: auto; /* Deja que el contenido defina la altura */
+    min-height: 50vh; /* Asegura que no quede demasiado pequeña */
+    padding-top: 56.25%; /* Mantiene proporción tipo 16:9 para que se vea completa */
+  }
+}
