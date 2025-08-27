@@ -511,18 +511,21 @@
       <p><strong>Email:</strong> <a href="mailto:senzsys.atencion.clientes@gmail.com">senzsys.atencion.clientes@gmail.com</a></p>
       <p><strong>Dirección:</strong> Bahía de Banderas, Nayarit, México</p>
     </div>
-    <form class="contact-form" action="mailto:senzsys.atencion.clientes@gmail.com" method="POST" enctype="text/plain">
-      <div class="form-group">
-        <input type="text" name="nombre" placeholder="Tu nombre" required />
-      </div>
-      <div class="form-group">
-        <input type="email" name="email" placeholder="Tu correo electrónico" required />
-      </div>
-      <div class="form-group">
-        <textarea name="mensaje" placeholder="Tu mensaje" required></textarea>
-      </div>
-      <button type="submit">Enviar</button>
-    </form>
+
+<form class="contact-form" id="contact-form">
+  <div class="form-group">
+    <input type="text" name="nombre" placeholder="Tu nombre" required />
+  </div>
+  <div class="form-group">
+    <input type="email" name="email" placeholder="Tu correo electrónico" required />
+  </div>
+  <div class="form-group">
+    <textarea name="mensaje" placeholder="Tu mensaje" required></textarea>
+  </div>
+  <button type="submit">Enviar</button>
+</form>
+<p id="form-status" style="text-align:center; margin-top: 10px;"></p>
+
   </section>
 
   <footer>
@@ -582,6 +585,30 @@
     // Mostrar primera imagen al cargar
     showSlide(currentSlide);
   </script>
+
+
+<script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+<script>
+  (function() {
+    emailjs.init("1EG5tYZjGRIY9d1L3"); // ← Reemplaza con tu Public Key de EmailJS
+  })();
+
+  document.getElementById("contact-form").addEventListener("submit", function(event) {
+    event.preventDefault();
+
+    emailjs.sendForm("service_3c9hkac", "template_qwrlxts", this)
+      .then(function(response) {
+        console.log("Éxito:", response.status, response.text);
+        document.getElementById("form-status").textContent = "¡Mensaje enviado correctamente!";
+        document.getElementById("form-status").style.color = "green";
+        document.getElementById("contact-form").reset();
+      }, function(error) {
+        console.log("Error:", error);
+        document.getElementById("form-status").textContent = "Error al enviar el mensaje. Intenta de nuevo.";
+        document.getElementById("form-status").style.color = "red";
+      });
+  });
+</script>
 
 </body>
 </html>
